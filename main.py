@@ -4,8 +4,7 @@ import asyncio
 import aiohttp
 from bs4 import BeautifulSoup
 import json
-import uvloop
-uvloop.install()
+
 
 app = FastAPI()
 
@@ -59,6 +58,12 @@ async def get_code_from_pockettactics():
 
     return codes
 
+@app.get("/")
+async def root():
+    return {"message": "Welcome to the Genshin Impact redeem code API! Please visit /codes for codes."}
+
+
+
 @app.get("/codes")
 async def read_codes() -> List[dict]:
     pocket_codes,program_codes,gipn = await asyncio.gather(get_code_from_pockettactics(),scrape_codes(),get_code_from_gipn())
@@ -69,4 +74,6 @@ async def read_codes() -> List[dict]:
 
 if __name__ == "__main__":
     import uvicorn
+    import uvloop
+    uvloop.install()
     uvicorn.run(app)
