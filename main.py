@@ -4,6 +4,8 @@ import asyncio
 import aiohttp
 from bs4 import BeautifulSoup
 import json
+import uvloop
+uvloop.install()
 
 app = FastAPI()
 
