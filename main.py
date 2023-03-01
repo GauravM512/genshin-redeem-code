@@ -84,7 +84,7 @@ async def read_codes() -> List[dict]:
     old_codes = ['GENSHINGIFT', 'XBRSDNF6BP4R', 'FTRUFT7AT5SV']
     new_codes = [code for code in pocket_codes if code['code'] not in old_codes]    
     filtered_codes = [code for code in new_codes if code['code'] in gipn and code['code'] in program_codes and code['code'] in games_radar]
-    monkey_code=[{"code":"SSRCJ8HSV7UM","description":"10k Mora, 10 Adventure's Experience, 5 Fine Enhancement Ore, 5 Fisheman's Toast, 5 Goulash"},{"LA9C3RHPPHQH":"60 primogems and five adventurer’s experience"}]
+    monkey_code=[{"code":"SSRCJ8HSV7UM","description":"10k Mora, 10 Adventure's Experience, 5 Fine Enhancement Ore, 5 Fisheman's Toast, 5 Goulash"},{"code":"LA9C3RHPPHQH","description":"60 primogems and five adventurer’s experience"}]
     if len(filtered_codes) == 0:
         new_codes.append(monkey_code)
         return new_codes
