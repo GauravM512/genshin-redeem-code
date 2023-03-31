@@ -119,6 +119,9 @@ async def read_codes() -> List[dict]:
     live = [{"code":"9ARE6VLJT34H","description":"100 Primogems,10 Enhancement Ore"},
             {"code":"KBRE7D4KA2MM","description":"100 Primogems,5 Heroe's Wit"},
             {"code":"7S9X6V4JB2M9","description":"100 Primogems,50000 Mora"}]
+    if len(filtered_codes) == 0:
+        new_codes.extend(live)
+        return new_codes
     filtered_codes.extend(live)
     return filtered_codes
 
